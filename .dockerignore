@@ -6,7 +6,6 @@
 target
 docs
 sdk
-scripts
 *.md
 !crates/**/*.md
 LICENSE-*
