@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     npm \
     && rm -rf /var/lib/apt/lists/*
 
-COPY scripts/install.sh /tmp/install.sh
+COPY --chmod=0755 scripts/install.sh /tmp/install.sh
 RUN /tmp/install.sh
 
 EXPOSE 4200
