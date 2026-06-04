@@ -26,5 +26,6 @@ RUN /tmp/install.sh
 EXPOSE 4200
 VOLUME /data
 ENV OPENFANG_HOME=/data
+ENV PATH="/home/appuser/.openfang/bin:${PATH}"
 ENTRYPOINT ["openfang"]
 CMD ["start"]
