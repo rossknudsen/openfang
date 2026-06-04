@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-venv \
     nodejs \
     npm \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --chmod=0755 scripts/install.sh /tmp/install.sh
