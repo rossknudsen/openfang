@@ -11,11 +11,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-VOLUME /data
-
 RUN <<EOF
     groupadd --gid 1001 appuser
     useradd --uid 1001 --gid appuser --create-home --shell /bin/bash appuser
+    mkdir -p /data
     chown appuser:appuser /data
 EOF
 
@@ -25,6 +24,7 @@ COPY --chown=appuser:appuser --chmod=0755 scripts/install.sh /tmp/install.sh
 RUN /tmp/install.sh
 
 EXPOSE 4200
+VOLUME /data
 ENV OPENFANG_HOME=/data
 ENTRYPOINT ["openfang"]
 CMD ["start"]
