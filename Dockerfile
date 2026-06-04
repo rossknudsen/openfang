@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY scripts/install.sh /tmp/install.sh
-bash -n /tmp/install.sh
+RUN /tmp/install.sh
 
 EXPOSE 4200
 VOLUME /data
